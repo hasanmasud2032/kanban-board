@@ -9,7 +9,10 @@ export const getUrl = (routeList, {routeName, params, queryString}) => {
     for(const param in params)
        url = url.replace(`:${param}`,params[param])
 
-    queryString && url.concat('?'+new URLSearchParams(queryString).toString())
+    if(queryString)
+    {
+        url = url.concat('?'+new URLSearchParams(queryString).toString())
+    }
 
   return url;
 }
